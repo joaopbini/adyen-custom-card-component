@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adyen Checkout Components sample code</title>
+    <link rel="stylesheet" href="../demo.css">
+    <link rel="stylesheet" href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.4.0/adyen.css"/>
+</head>
+<body>
+
+<div class="content">
+    <h1>Checkout SecuredFields Component</h1>
+    <div class="merchant-checkout__form">
+        <div class="merchant-checkout__payment-method__header">
+            <h2 class="sf-text">SecuredFields</h2>
+        </div>
+        <div class="merchant-checkout__payment-method">
+            <div id="customCard-container" class="merchant-checkout__payment-method__details secured-fields">
+                <span class="pm-image">
+                    <img id="pmImage" width="40"
+                         src="https://checkoutshopper-test.adyen.com/checkoutshopper/images/logos/nocard.svg" alt="">
+                </span>
+                <label class="pm-form-label">
+                    <span class="pm-form-label__text">Card number:</span>
+                    <span class="pm-input-field" data-cse="encryptedCardNumber"></span>
+                    <span class="pm-form-label__error-text">Please enter a valid credit card number</span>
+                </label>
+                <label class="pm-form-label pm-form-label--exp-date">
+                    <span class="pm-form-label__text">Expiry date:</span>
+                    <span class="pm-input-field" data-cse="encryptedExpiryDate"></span>
+                    <span class="pm-form-label__error-text">Date error text</span>
+                </label>
+                <label class="pm-form-label pm-form-label--cvc">
+                    <span class="pm-form-label__text">CVV/CVC:</span>
+                    <span class="pm-input-field" data-cse="encryptedSecurityCode"></span>
+                    <span class="pm-form-label__error-text">CVC Error text</span>
+                </label>
+                <label class="pm-form-label">
+                    <span class="pm-form-label__text">Cardholder name</span>
+                    <span class="pm-input-fieldr">
+                            <input class="adyen-checkout__input adyen-checkout__input--text adyen-checkout__card__holderName__input sMjS8HCbKiP5yR9Td9ZgQ adyen-checkout__input--large"
+                                   placeholder="J. Smith" required="" type="text">
+                    </span>
+                </label>
+                <!--                <label class="pm-form-label">-->
+                <!--                    <span class="pm-form-label__text">Holder Name:</span>-->
+                <!--                    <span class="pm-input-field"></span>-->
+                <!--                    <span class="pm-form-label__error-text">Por favor insira um nome válido</span>-->
+                <!--                </label>-->
+            </div>
+            <div class="card-input__spinner__holder">
+                <div class="card-input__spinner card-input__spinner--active">
+                    <div class="adyen-checkout__spinner__wrapper ">
+                        <div class="adyen-checkout__spinner adyen-checkout__spinner--large"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../demo.js"></script>
+    <script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.4.0/adyen.js"></script>
+    <script src="../utils.js"></script>
+    <script src="custom.js"></script>
+</body>
+</html>

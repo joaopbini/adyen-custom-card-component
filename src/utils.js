@@ -1,22 +1,25 @@
 const paymentMethodsConfig = {
     shopperReference: 'Checkout Components sample code test',
     reference: 'Checkout Components sample code test',
-    countryCode: 'NL',
+    countryCode: 'BR',
     amount: {
-        value: 1000,
-        currency: 'EUR'
+        value: 100000,
+        currency: 'BRL'
     }
 };
 
 const paymentsDefaultConfig = {
     shopperReference: 'Checkout Components sample code test',
     reference: 'Checkout Components sample code test',
-    countryCode: 'NL',
+    countryCode: 'BR',
     channel: 'Web',
     returnUrl: 'https://your-company.com/',
+    installments: {
+        value: 6
+    },
     amount: {
-        value: 1000,
-        currency: 'EUR'
+        value: 100000,
+        currency: 'BRL'
     },
     lineItems: [
         {
@@ -55,16 +58,17 @@ const getPaymentMethods = () =>
 
 // Posts a new payment into the local server
 const makePayment = (paymentMethod, config = {}) => {
-    const paymentsConfig = { ...paymentsDefaultConfig, ...config };
-    const paymentRequest = { ...paymentsConfig, ...paymentMethod };
+    console.log("Make payment")
+    const paymentsConfig = {...paymentsDefaultConfig, ...config};
+    const paymentRequest = {...paymentsConfig, ...paymentMethod};
 
-    updateRequestContainer(paymentRequest);
+    // updateRequestContainer(paymentRequest);
 
     return httpPost('payments', paymentRequest)
         .then(response => {
             if (response.error) throw 'Payment initiation failed';
 
-            updateResponseContainer(response);
+            // updateResponseContainer(response);
 
             return response;
         })

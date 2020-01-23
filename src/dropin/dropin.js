@@ -12,6 +12,17 @@ getOriginKey().then(originKey => {
         // 2. Create and mount the Component
         const dropin = checkout
             .create('dropin', {
+
+                paymentMethodsConfiguration: {
+                    card: { // Example optional configuration for Cards
+                        hasHolderName: true,
+                        holderNameRequired: true,
+                        enableStoreDetails: true,
+                        hideCVC: false, // Change this to true to hide the CVC field for stored cards
+                        name: 'Credit or debit card'
+                    }
+                },
+
                 // Events
                 onSelect: activeComponent => {
                     updateStateContainer(activeComponent.data); // Demo purposes only

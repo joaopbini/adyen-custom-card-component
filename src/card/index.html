@@ -5,42 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adyen Checkout Components sample code</title>
-    <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/3.4.0/adyen.css">
+    <!--    <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/3.4.0/adyen.css">-->
     <link rel="stylesheet" href="../demo.css">
+    <link rel="stylesheet" href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.4.0/adyen.css"/>
 </head>
 <body>
-    <div class="container container--full-width">
-        <div class="main">
-            <div class="checkout-container">
-                <a href="../">Back</a>
+<div class="container container--full-width">
+    <div class="main">
+        <div class="checkout-container">
+            <a href="../">Back</a>
 
-                <h1>Card Component</h1>
-                <div class="payment-method">
-                    <div id="card-container" class="payment-method__container">
-                        <!-- Card Component will be rendered here -->
-                    </div>
+            <h1>Card Component</h1>
+            <div class="payment-method">
+                <div id="card-container" class="payment-method__container">
+                    <!-- Card Component will be rendered here -->
                 </div>
-            </div>
-
-            <div class="info">
-                <p>
-                    Check the Source Code to see the full implementation.
-                </p>
-                <p>
-                    To make a payment, use our <a href="https://docs.adyen.com/developers/development-resources/test-cards/test-card-numbers" target="_blank">test card numbers</a>.
-                </p>
-                <p>
-                    For more information, please refer to the <a href="https://docs.adyen.com/checkout/components-web/" target="_blank">Checkout Components documentation</a>.
-                </p>
             </div>
         </div>
 
-        <div class="sidebar">
-            <div class="header">
-                <h2>Basic Implementation</h2>
-                <button class="copy-sample-code" aria-label="Copy sample code"></button>
-            </div>
-            <pre class="source-code"><code>const checkout = new AdyenCheckout({
+        <div id="customCard-container">
+            <label>
+                <span>Card number:</span>
+                <span data-cse="encryptedCardNumber"></span>
+            </label>
+            <label>
+                <span>Expiry date:</span>
+                <span data-cse="encryptedExpiryDate"></span>
+            </label>
+            <label>
+                <span>CVV/CVC:</span>
+                <span data-cse="encryptedSecurityCode"></span>
+            </label>
+            <button onsubmit="makePayment(state.data)" class="adyen-checkout__button adyen-checkout__button--pay" type="button"></button>
+        </div>
+
+        <div class="info">
+            <p>
+                Check the Source Code to see the full implementation.
+            </p>
+            <p>
+                To make a payment, use our <a
+                    href="https://docs.adyen.com/developers/development-resources/test-cards/test-card-numbers"
+                    target="_blank">test card numbers</a>.
+            </p>
+            <p>
+                For more information, please refer to the <a href="https://docs.adyen.com/checkout/components-web/"
+                                                             target="_blank">Checkout Components documentation</a>.
+            </p>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="header">
+            <h2>Basic Implementation</h2>
+            <button class="copy-sample-code" aria-label="Copy sample code"></button>
+        </div>
+        <pre class="source-code"><code>const checkout = new AdyenCheckout({
     environment: 'test',
     originKey: 'pub...',
     onChange: (state, component) => {
@@ -53,32 +73,33 @@ const card = checkout
     .create('card')
     .mount('#card-container');</code></pre>
 
+        <div class="header">
+            <h2>Current state</h2>
+        </div>
+        <pre class="current-state">{}</pre>
+
+        <div class="request-container">
             <div class="header">
-                <h2>Current state</h2>
+                <h2>Request</h2>
             </div>
-            <pre class="current-state">{}</pre>
+            <p>The request to the <code>/payments</code> endpoint will be shown here.</p>
+            <pre class="request-code"></pre>
+        </div>
 
-            <div class="request-container">
-                <div class="header">
-                    <h2>Request</h2>
-                </div>
-                <p>The request to the <code>/payments</code> endpoint will be shown here.</p>
-                <pre class="request-code"></pre>
+        <div class="response-container">
+            <div class="header">
+                <h2>Response</h2>
             </div>
-
-            <div class="response-container">
-                <div class="header">
-                    <h2>Response</h2>
-                </div>
-                <p>The response from the <code>/payments</code> endpoint will be shown here.</p>
-                <pre class="response-code"></pre>
-            </div>
+            <p>The response from the <code>/payments</code> endpoint will be shown here.</p>
+            <pre class="response-code"></pre>
         </div>
     </div>
+</div>
 
-    <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/3.4.0/adyen.js"></script>
-    <script src="../demo.js"></script>
-    <script src="../utils.js"></script>
-    <script src="/card/card.js"></script>
+<!--    <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/3.4.0/adyen.js"></script>-->
+<script src="../demo.js"></script>
+<script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.4.0/adyen.js"></script>
+<script src="../utils.js"></script>
+<script src="/card/card.js"></script>
 </body>
 </html>
