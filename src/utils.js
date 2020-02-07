@@ -18,21 +18,21 @@ const paymentsDefaultConfig = {
         value: 6
     },
     amount: {
-        value: 100000,
+        value: 115607,
         currency: 'BRL'
-    },
-    lineItems: [
-        {
-            id: '1',
-            description: 'Test Item 1',
-            amountExcludingTax: 10000,
-            amountIncludingTax: 11800,
-            taxAmount: 1800,
-            taxPercentage: 1800,
-            quantity: 1,
-            taxCategory: 'High'
-        }
-    ]
+    }
+    // lineItems: [
+    //     {
+    //         id: '1',
+    //         description: 'Test Item 1',
+    //         amountExcludingTax: 10000,
+    //         amountIncludingTax: 11800,
+    //         taxAmount: 1800,
+    //         taxPercentage: 1800,
+    //         quantity: 1,
+    //         taxCategory: 'High'
+    //     }
+    // ]
 };
 
 // Generic POST Helper
@@ -58,7 +58,7 @@ const getPaymentMethods = () =>
 
 // Posts a new payment into the local server
 const makePayment = (paymentMethod, config = {}) => {
-    console.log("Make payment")
+    console.log("Make payment");
     const paymentsConfig = {...paymentsDefaultConfig, ...config};
     const paymentRequest = {...paymentsConfig, ...paymentMethod};
 
@@ -80,6 +80,7 @@ const getOriginKey = () =>
     httpPost('originKeys')
         .then(response => {
             if (response.error || !response.originKeys) throw 'No originKey available';
+            console.log(response.originKeys[Object.keys(response.originKeys)[0]]);
 
             return response.originKeys[Object.keys(response.originKeys)[0]];
         })
