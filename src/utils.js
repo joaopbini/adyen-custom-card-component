@@ -18,7 +18,7 @@ const paymentsDefaultConfig = {
         value: 6
     },
     amount: {
-        value: 115607,
+        value: 10,
         currency: 'BRL'
     }
     // lineItems: [
@@ -37,7 +37,7 @@ const paymentsDefaultConfig = {
 
 // Generic POST Helper
 const httpPost = (endpoint, data) =>
-    fetch(`/${endpoint}`, {
+    fetch(`https://localhost:8080/${endpoint}`, {
         method: 'POST',
         headers: {
             Accept: 'application/json, text/plain, */*',

@@ -22,9 +22,9 @@ function getPaymentMethods() {
 
     $data = [
         'merchantAccount' => $merchantAccount,
-        'countryCode' => 'NL',
+        'countryCode' => 'BR',
         'amount' => [
-            'currency' => 'EUR',
+            'currency' => 'BRL',
             'value' => 1000
         ]
     ];

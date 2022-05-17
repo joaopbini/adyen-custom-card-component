@@ -19,16 +19,16 @@ const boleto = checkout.create('boletobancario').mount('#boletobancario-containe
 // This is a mock of the /payments response action property
 const actionMock = {
     downloadUrl: 'https://...',
-    expiresAt: '2019-09-11T00:00:00',
+    expiresAt: '2021-10-31T00:00:00',
     initialAmount: {
         currency: 'BRL',
-        value: 1000
+        value: 1000000
     },
     paymentMethodType: 'boletobancario',
     reference: '12345.12345 12345.123456 12345.123456 1 12345678901',
     totalAmount: {
         currency: 'BRL',
-        value: 1000
+        value: 1000000
     },
     type: 'voucher'
 };
